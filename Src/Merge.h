@@ -70,6 +70,10 @@ public:
 	std::unique_ptr<CCrystalTextMarkers> m_pMarkers; /**< Marker container */
 	String m_strSaveAsPath; /**< "3rd path" where output saved if given */
 	bool m_bEscShutdown; /**< If commandline switch -e given ESC closes appliction */
+	unsigned m_leftgoto;
+	unsigned m_rightgoto;
+	bool m_bRightGoto;
+	bool m_bLeftGoto;
 	SyntaxColors * GetMainSyntaxColors() { return m_pSyntaxColors.get(); }
 	CCrystalTextMarkers * GetMainMarkers() const { return m_pMarkers.get(); }
 	MergeCmdLineInfo::ExitNoDiff m_bExitIfNoDiff; /**< Exit if files are identical? */

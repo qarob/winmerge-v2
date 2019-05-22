@@ -141,7 +141,11 @@ MergeCmdLineInfo::MergeCmdLineInfo(const TCHAR *q):
 	m_nCodepage(0),
 	m_dwLeftFlags(FFILEOPEN_NONE),
 	m_dwMiddleFlags(FFILEOPEN_NONE),
-	m_dwRightFlags(FFILEOPEN_NONE)
+	m_dwRightFlags(FFILEOPEN_NONE),
+	m_dwLeftLineNumber(0),
+	m_dwRightLineNumber(0),
+	m_bLeftLineNumber(false),
+	m_bRightLineNumber(false)
 {
 	String exeName;
 	q = EatParam(q, exeName);
@@ -359,6 +363,20 @@ void MergeCmdLineInfo::ParseWinMergeCmdLine(const TCHAR *q)
 			String codepage;
 			q = EatParam(q, codepage);
 			m_nCodepage = atoi(ucr::toUTF8(codepage).c_str());
+		}
+		else if (param == _T("leftgoto"))
+		{
+			String leftgoto;
+			q = EatParam(q, leftgoto);
+			m_dwLeftLineNumber = strtoul(ucr::toUTF8(leftgoto).c_str(), NULL, 0);
+			m_bLeftLineNumber = true;
+		}
+		else if (param == _T("rightgoto"))
+		{
+			String rightgoto;
+			q = EatParam(q, rightgoto);
+			m_dwRightLineNumber = strtoul(ucr::toUTF8(rightgoto).c_str(), NULL, 0);
+			m_bRightLineNumber = true;
 		}
 		else if (param == _T("ignorews"))
 		{

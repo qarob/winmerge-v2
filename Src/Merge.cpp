@@ -641,6 +641,11 @@ bool CMergeApp::ParseArgsAndDoOpen(MergeCmdLineInfo& cmdInfo, CMainFrame* pMainF
 		m_bExitIfNoDiff = cmdInfo.m_bExitIfNoDiff;
 		m_bEscShutdown = cmdInfo.m_bEscShutdown;
 
+		m_bRightGoto = cmdInfo.m_bRightLineNumber;
+		m_bLeftGoto = cmdInfo.m_bLeftLineNumber;
+		m_rightgoto = cmdInfo.m_dwRightLineNumber;
+		m_leftgoto = cmdInfo.m_dwLeftLineNumber;
+
 		m_strSaveAsPath = cmdInfo.m_sOutputpath;
 
 		strDesc[0] = cmdInfo.m_sLeftDesc;

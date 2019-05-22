@@ -74,6 +74,11 @@ public:
 	unsigned m_dwMiddleFlags; /**< Middle side file's behavior options. */
 	unsigned m_dwRightFlags; /**< Right side file's behavior options. */
 
+	unsigned m_dwLeftLineNumber; /**< Left line to goto */
+	unsigned m_dwRightLineNumber; /**< Right line to goto */
+	bool m_bLeftLineNumber; /**< True if left goto specified on command line */
+	bool m_bRightLineNumber; /**< True if right goto specified on command line */
+
 	String m_sLeftDesc; /**< Left side file's description. */
 	String m_sMiddleDesc; /**< Middle side file's description. */
 	String m_sRightDesc; /**< Right side file's description. */

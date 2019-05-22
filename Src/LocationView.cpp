@@ -559,6 +559,17 @@ void CLocationView::OnDraw(CDC* pDC)
 	DrawVisibleAreaRect(&dc);
 
 	m_bDrawn = true;
+	
+	// Scroll to the line number specified on the command line
+	CMergeEditView *pView = pDoc->GetView(nGroup, nPaneNotModified);
+	if (theApp.m_bLeftGoto) {
+		pView->GotoLine(theApp.m_leftgoto - 1, true, 0);
+		theApp.m_bLeftGoto = false;
+	}
+	if (theApp.m_bRightGoto) {
+		pView->GotoLine(theApp.m_rightgoto - 1, true, 0);
+		theApp.m_bRightGoto = false;
+	}
 }
 
 /** 
